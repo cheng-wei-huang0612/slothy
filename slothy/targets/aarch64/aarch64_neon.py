@@ -1577,6 +1577,21 @@ class d_stp_stack_with_inc(AArch64Instruction):
         self.immediate = simplify(self.pre_index)
         return super().write()
 
+class d_stp_stack_with_inc_writeback(AArch64Instruction):
+    pattern = "stp <Da>, <Db>, [sp, <imm>]!"
+    inputs = ["Da", "Db"]  # TODO: Model sp dependency
+
+    @classmethod
+    def make(cls, src):
+        obj = AArch64Instruction.build(cls, src)
+        obj.increment = None
+        obj.pre_index = obj.immediate
+        obj.addr = "sp"
+        return obj
+
+    def write(self):
+        self.immediate = simplify(self.pre_index)
+        return super().write()
 
 class q_stp_stack_with_inc(AArch64Instruction):
     pattern = "stp <Qa>, <Qb>, [sp, <imm>]"
@@ -2018,6 +2033,10 @@ class ldr_sxtw_wform(AArch64Instruction):
     inputs = ["Xa", "Wb"]
     outputs = ["Wd"]
 
+class ldr_wform_with_imm(AArch64Instruction):
+    pattern = "ldr <Wd>, [<Xa>, <imm>]"
+    inputs = ["Xa"]
+    outputs = ["Wd"]
 
 ############################
 #                          #
@@ -2455,6 +2474,10 @@ class sbfx(AArch64Logical):
     inputs = ["Xa"]
     outputs = ["Xd"]
 
+class ubfx(AArch64Logical):
+    pattern = "ubfx <Xd>, <Xa>, <imm0>, <imm1>"
+    inputs = ["Xa"]
+    outputs = ["Xd"]
 
 class extr(AArch64Logical):  # TODO! Review this...
     pattern = "extr <Xd>, <Xa>, <Xb>, <imm>"
@@ -2521,6 +2544,11 @@ class csel_ne(AArch64ConditionalSelect):
     outputs = ["Xd"]
     dependsOnFlags = True
 
+class csneg(AArch64ConditionalSelect):
+    pattern = "csneg <Xd>, <Xe>, <Xf>, <flag>"
+    inputs = ["Xe", "Xf"]
+    outputs = ["Xd"]
+    dependsOnFlags = True
 
 class cinv(AArch64ConditionalSelect):
     pattern = "cinv <Xd>, <Xe>, <flag>"
@@ -2695,6 +2723,10 @@ class tst_xform(Tst):
     inputs = ["Xa", "Xb"]
     modifiesFlags = True
 
+class tst_ror_xform(Tst):
+    pattern = "tst <Xa>, <Xb>, ror <imm>"
+    inputs = ["Xa", "Xb"]
+    modifiesFlags = True
 
 class cmp(Tst):
     pattern = "cmp <Xa>, <Xb>"
@@ -2896,6 +2928,10 @@ class vins_d(Vins):
     inputs = ["Xa"]
     in_outs = ["Vd"]
 
+class vins_s(Vins):
+    pattern = "ins <Vd>.s[<index>], <Wa>"
+    inputs = ["Wa"]
+    in_outs = ["Vd"]
 
 class vins_d_force_output(Vins):
     pattern = "ins <Vd>.d[<index>], <Xa>"
@@ -3109,6 +3145,66 @@ class vsmull2(Vmull):
     inputs = ["Va", "Vb"]
     outputs = ["Vd"]
 
+
+class vsmull_lane(Vmla):
+    pattern = "smull <Vd>.<dt0>, <Va>.<dt1>, <Vb>.<dt2>[<index>]"
+    inputs = ["Va", "Vb"]
+    in_outs = ["Vd"]
+
+    @classmethod
+    def make(cls, src):
+        obj = AArch64Instruction.build(cls, src)
+        if obj.datatype[0] == "8h":
+            obj.args_in_restrictions = [
+                [f"v{i}" for i in range(0, 32)],
+                [f"v{i}" for i in range(0, 16)],
+            ]
+        return obj
+
+class vsmull2_lane(Vmla):
+    pattern = "smull2 <Vd>.<dt0>, <Va>.<dt1>, <Vb>.<dt2>[<index>]"
+    inputs = ["Va", "Vb"]
+    in_outs = ["Vd"]
+
+    @classmethod
+    def make(cls, src):
+        obj = AArch64Instruction.build(cls, src)
+        if obj.datatype[0] == "8h":
+            obj.args_in_restrictions = [
+                [f"v{i}" for i in range(0, 32)],
+                [f"v{i}" for i in range(0, 16)],
+            ]
+        return obj
+
+class vsmlal_lane(Vmla):
+    pattern = "smlal <Vd>.<dt0>, <Va>.<dt1>, <Vb>.<dt2>[<index>]"
+    inputs = ["Va", "Vb"]
+    in_outs = ["Vd"]
+
+    @classmethod
+    def make(cls, src):
+        obj = AArch64Instruction.build(cls, src)
+        if obj.datatype[0] == "8h":
+            obj.args_in_restrictions = [
+                [f"v{i}" for i in range(0, 32)],
+                [f"v{i}" for i in range(0, 16)],
+            ]
+        return obj
+
+class vsmlal2_lane(Vmla):
+    pattern = "smlal2 <Vd>.<dt0>, <Va>.<dt1>, <Vb>.<dt2>[<index>]"
+    inputs = ["Va", "Vb"]
+    in_outs = ["Vd"]
+
+    @classmethod
+    def make(cls, src):
+        obj = AArch64Instruction.build(cls, src)
+        if obj.datatype[0] == "8h":
+            obj.args_in_restrictions = [
+                [f"v{i}" for i in range(0, 32)],
+                [f"v{i}" for i in range(0, 16)],
+            ]
+        return obj
 
 class Vmlal(AArch64Instruction):
     pass
@@ -3552,6 +3648,21 @@ class x_stp_with_imm_sp(Stp_X):
         self.immediate = simplify(self.pre_index)
         return super().write()
 
+class x_stp_with_imm_sp_writeback(Stp_X):
+    pattern = "stp <Xa>, <Xb>, [sp, <imm>]!"
+    inputs = ["Xa", "Xb"]
+
+    @classmethod
+    def make(cls, src):
+        obj = AArch64Instruction.build(cls, src)
+        obj.increment = None
+        obj.pre_index = obj.immediate
+        obj.addr = "sp"
+        return obj
+
+    def write(self):
+        self.immediate = simplify(self.pre_index)
+        return super().write()
 
 class x_stp_with_inc(Stp_X):
     pattern = "stp <Xa>, <Xb>, [<Xc>, <imm>]"

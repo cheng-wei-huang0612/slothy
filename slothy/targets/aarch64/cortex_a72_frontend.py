@@ -92,6 +92,22 @@ from slothy.targets.aarch64.aarch64_neon import (
     St2,
     Ld3,
     Ld4,
+    sbfx,
+    ubfx,
+    and_imm,
+    mul_xform,
+    sub,
+    sub_imm,
+    lsl,
+    asr,
+    tst_imm_xform,
+    tst_ror_xform,
+    csneg,
+    csel_ne,
+    csel_xzr_ne,
+    Ldp_X,
+    Stp_X,
+    d_stp_stack_with_inc_writeback,
 )
 
 # From the A72 SWOG, Section "4.1 Dispatch Constraints"
@@ -182,15 +198,19 @@ execution_units = {
     ],
     Vins: [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
     umov_d: ExecutionUnit.LOAD(),  # ???
-    (Ldr_Q, Ldr_X): ExecutionUnit.LOAD(),
-    (Str_Q, Str_X): ExecutionUnit.STORE(),
-    (add, add_imm, add_lsl, add_lsr): ExecutionUnit.SCALAR(),
+    (Ldr_Q, Ldr_X, Ldp_X): ExecutionUnit.LOAD(),
+    (Str_Q, Str_X, Stp_X, d_stp_stack_with_inc_writeback): ExecutionUnit.STORE(),
+    (add, add_imm, add_lsl, add_lsr, sbfx, ubfx,
+     and_imm, tst_imm_xform, tst_ror_xform,
+     csneg, csel_ne, csel_xzr_ne,
+     mul_xform, sub, lsl, asr, sub_imm): ExecutionUnit.SCALAR(),
     (VShiftImmediateRounding, VShiftImmediateBasic): [ExecutionUnit.ASIMD1],
     (St4, St3, St2): [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
     (Ld3, Ld4): [
         [ExecutionUnit.ASIMD0, ExecutionUnit.LOAD0, ExecutionUnit.LOAD1],
         [ExecutionUnit.ASIMD1, ExecutionUnit.LOAD0, ExecutionUnit.LOAD1],
     ],
+
 }
 
 inverse_throughput = {
@@ -219,6 +239,22 @@ inverse_throughput = {
     St4: 8,
     Ld3: 3,
     Ld4: 4,
+    sbfx: 1,
+    ubfx: 1,
+    and_imm: 1,
+    mul_xform: 1,
+    sub: 1,
+    sub_imm: 1,
+    lsl: 2,
+    asr: 2,
+    tst_imm_xform: 1,
+    tst_ror_xform: 1,
+    csneg: 1,
+    csel_ne: 1,
+    csel_xzr_ne: 1,
+    Stp_X: 2, # Better check this out later
+    d_stp_stack_with_inc_writeback: 2,
+
 }
 
 # REVISIT
@@ -255,6 +291,23 @@ default_latencies = {
     St4: 8,
     Ld3: 3,
     Ld4: 4,
+    sbfx: 1,
+    ubfx: 1,
+    and_imm: 1,
+    mul_xform: 3,
+    sub: 1,
+    sub_imm: 1,
+    lsl: 2,
+    asr: 2,
+    tst_imm_xform: 1,
+    tst_ror_xform: 2,
+    csneg: 1,
+    csel_ne: 1,
+    csel_xzr_ne: 1,
+    Stp_X: 2,
+    d_stp_stack_with_inc_writeback: 2
+
+
 }
 
 
