@@ -17,7 +17,7 @@ target = Target_CortexA72
 slothy = Slothy(arch, target)
 
 # example
-slothy.load_source_from_file("i_loop_clear_1.s")
+slothy.load_source_from_file("i_loop_clear.s")
 slothy.config.variable_size = True
 slothy.config.constraints.stalls_first_attempt = 32
 
