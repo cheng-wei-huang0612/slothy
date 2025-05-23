@@ -108,6 +108,19 @@ from slothy.targets.aarch64.aarch64_neon import (
     Ldp_X,
     Stp_X,
     d_stp_stack_with_inc_writeback,
+    Vmlal,
+    vand,
+    vorr,
+    vmov,
+    madd_xform,
+    smov_s,
+    vsshll,
+    mov_xform,
+    smulh_xform,
+    adds_twoarg,
+    adc,
+    lsr,
+    orr,
 )
 
 # From the A72 SWOG, Section "4.1 Dispatch Constraints"
@@ -200,9 +213,9 @@ execution_units = {
     umov_d: ExecutionUnit.LOAD(),  # ???
     (Ldr_Q, Ldr_X, Ldp_X): ExecutionUnit.LOAD(),
     (Str_Q, Str_X, Stp_X, d_stp_stack_with_inc_writeback): ExecutionUnit.STORE(),
-    (add, add_imm, add_lsl, add_lsr, sbfx, ubfx,
-     and_imm, tst_imm_xform, tst_ror_xform,
-     csneg, csel_ne, csel_xzr_ne,
+    (add, add_imm, add_lsl, add_lsr, sbfx, ubfx, adds_twoarg, adc, orr,
+     and_imm, tst_imm_xform, tst_ror_xform, mov_xform, lsr,
+     csneg, csel_ne, csel_xzr_ne, 
      mul_xform, sub, lsl, asr, sub_imm): ExecutionUnit.SCALAR(),
     (VShiftImmediateRounding, VShiftImmediateBasic): [ExecutionUnit.ASIMD1],
     (St4, St3, St2): [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
@@ -210,7 +223,11 @@ execution_units = {
         [ExecutionUnit.ASIMD0, ExecutionUnit.LOAD0, ExecutionUnit.LOAD1],
         [ExecutionUnit.ASIMD1, ExecutionUnit.LOAD0, ExecutionUnit.LOAD1],
     ],
-
+    (vand, vorr, vmov): [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
+    madd_xform: ExecutionUnit.SCALAR(),
+    smov_s: ExecutionUnit.INT() + ExecutionUnit.LOAD(),
+    vsshll: ExecutionUnit.ASIMD1,
+    smulh_xform: ExecutionUnit.MINT()
 }
 
 inverse_throughput = {
@@ -230,7 +247,7 @@ inverse_throughput = {
     (vadd, vsub, trn1, trn2, ASimdCompare): 1,
     Vins: 1,
     umov_d: 1,
-    (add, add_imm, add_lsl, add_lsr): 1,
+    (add, add_imm, add_lsl, add_lsr, adds_twoarg, adc): 1,
     (Ldr_Q, Str_Q, Ldr_X, Str_X): 1,
     (VShiftImmediateRounding, VShiftImmediateBasic): 1,
     # TODO: this seems in accurate; revisiting may improve performance
@@ -254,6 +271,14 @@ inverse_throughput = {
     csel_xzr_ne: 1,
     Stp_X: 2, # Better check this out later
     d_stp_stack_with_inc_writeback: 2,
+    (vand, vorr, vmov): 1,
+    madd_xform: 1,
+    smov_s: 1,
+    vsshll: 1,
+    mov_xform: 1,
+    smulh_xform: 4,
+    lsr: 1,
+    orr: 1,
 
 }
 
@@ -270,7 +295,7 @@ default_latencies = {
         vmla_lane,
         vqdmulh_lane,
     ): 5,
-    (Vmull, Vmlal): 1,
+    (Vmull, Vmlal, ): 4, # SWOG page 25
     (
         vadd,
         vsub,
@@ -305,9 +330,17 @@ default_latencies = {
     csel_ne: 1,
     csel_xzr_ne: 1,
     Stp_X: 2,
-    d_stp_stack_with_inc_writeback: 2
-
-
+    d_stp_stack_with_inc_writeback: 2,
+    (vand, vorr, vmov): 3,
+    madd_xform: 3,
+    smov_s: 6,
+    vsshll: 3,
+    mov_xform: 1,
+    smulh_xform: 6,
+    adds_twoarg: 1,
+    adc: 1,
+    lsr: 1,
+    orr: 1,
 }
 
 
