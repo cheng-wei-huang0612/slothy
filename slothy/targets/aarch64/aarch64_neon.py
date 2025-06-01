@@ -1687,6 +1687,21 @@ class q_stp_with_inc(Stp_Q):
         self.immediate = simplify(self.pre_index)
         return super().write()
 
+class q_stp(Stp_Q):
+    pattern = "stp <Qa>, <Qb>, [<Xc>]"
+    inputs = ["Qa", "Qb", "Xc"]
+
+    @classmethod
+    def make(cls, src):
+        obj = AArch64Instruction.build(cls, src)
+        obj.increment = None
+        obj.pre_index = obj.immediate
+        obj.addr = obj.args_in[0]
+        return obj
+
+    def write(self):
+        self.immediate = simplify(self.pre_index)
+        return super().write()
 
 class q_str_with_inc_writeback(Str_Q):
     pattern = "str <Qa>, [<Xc>, <imm>]!"
@@ -1757,6 +1772,23 @@ class x_ldr(Ldr_X):
 
 class x_ldr_with_imm(Ldr_X):
     pattern = "ldr <Xa>, [<Xc>, <imm>]"
+    inputs = ["Xc"]
+    outputs = ["Xa"]
+
+    @classmethod
+    def make(cls, src):
+        obj = AArch64Instruction.build(cls, src)
+        obj.increment = None
+        obj.pre_index = obj.immediate
+        obj.addr = obj.args_in[0]
+        return obj
+
+    def write(self):
+        self.immediate = simplify(self.pre_index)
+        return super().write()
+
+class x_ldrsw_with_imm(Ldr_X):
+    pattern = "ldrsw <Xa>, [<Xc>, <imm>]"
     inputs = ["Xc"]
     outputs = ["Xa"]
 
@@ -2094,7 +2126,7 @@ class ldr_sxtw_wform(AArch64Instruction):
     inputs = ["Xa", "Wb"]
     outputs = ["Wd"]
 
-class ldr_wform_with_imm(AArch64Instruction):
+class ldr_wform_with_imm(Ldp_X):
     pattern = "ldr <Wd>, [<Xa>, <imm>]"
     inputs = ["Xa"]
     outputs = ["Wd"]
@@ -2540,10 +2572,6 @@ class ubfx(AArch64Logical):
     inputs = ["Xa"]
     outputs = ["Xd"]
 
-class ubfx(AArch64Logical):
-    pattern = "ubfx <Xd>, <Xa>, <imm0>, <imm1>"
-    inputs = ["Xa"]
-    outputs = ["Xd"]
 
 
 class extr(AArch64Logical):  # TODO! Review this...
@@ -2635,6 +2663,12 @@ class csneg(AArch64ConditionalSelect):
     outputs = ["Xd"]
     dependsOnFlags = True
 
+class csinv(AArch64ConditionalSelect):
+    pattern = "csinv <Xd>, <Xe>, <Xf>, <flag>"
+    inputs = ["Xe", "Xf"]
+    outputs = ["Xd"]
+    dependsOnFlags = True
+
 class cinv(AArch64ConditionalSelect):
     pattern = "cinv <Xd>, <Xe>, <flag>"
     inputs = ["Xe"]
@@ -2681,6 +2715,18 @@ class ldr_const(AArch64Instruction):
 
 class movk_imm(AArch64Instruction):
     pattern = "movk <Xd>, <imm>"
+    inputs = []
+    in_outs = ["Xd"]
+
+
+class movk_imm_shift_16(AArch64Instruction):
+    pattern = "movk <Xd>, <imm>, lsl #16"
+    inputs = []
+    in_outs = ["Xd"]
+
+
+class movz_imm(AArch64Instruction):
+    pattern = "movz <Xd>, <imm>"
     inputs = []
     in_outs = ["Xd"]
 
@@ -3208,6 +3254,10 @@ class vdup(AArch64Instruction):
     inputs = ["Xa"]
     outputs = ["Vd"]
 
+class vdup_sform_genreg(AArch64Instruction):
+    pattern = "dup <Vd>.<dt>, <Wa>"
+    inputs = ["Wa"]
+    outputs = ["Vd"]
 
 class Vmull(AArch64Instruction):
     pass
@@ -3915,6 +3965,12 @@ class x_stp_with_imm_hint2(Stp_X):
     def write(self):
         self.immediate = simplify(self.pre_index)
         return super().write()
+
+
+
+
+
+
 
 
 class St4(AArch64Instruction):

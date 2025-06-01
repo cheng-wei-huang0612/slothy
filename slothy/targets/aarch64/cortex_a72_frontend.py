@@ -116,11 +116,21 @@ from slothy.targets.aarch64.aarch64_neon import (
     smov_s,
     vsshll,
     mov_xform,
+    mov_imm,
     smulh_xform,
     adds_twoarg,
     adc,
     lsr,
     orr,
+    vmovi,
+    movz_imm,
+    movk_imm_shift_16,
+    vdup_sform_genreg,
+    subs_imm,
+    mvn_xzr,
+    csinv,
+    and_twoarg,
+    cmp_imm,
 )
 
 # From the A72 SWOG, Section "4.1 Dispatch Constraints"
@@ -213,8 +223,8 @@ execution_units = {
     umov_d: ExecutionUnit.LOAD(),  # ???
     (Ldr_Q, Ldr_X, Ldp_X): ExecutionUnit.LOAD(),
     (Str_Q, Str_X, Stp_X, d_stp_stack_with_inc_writeback): ExecutionUnit.STORE(),
-    (add, add_imm, add_lsl, add_lsr, sbfx, ubfx, adds_twoarg, adc, orr,
-     and_imm, tst_imm_xform, tst_ror_xform, mov_xform, lsr,
+    (add, add_imm, add_lsl, add_lsr, sbfx, ubfx, adds_twoarg, adc, orr, movk_imm_shift_16, subs_imm,
+     and_imm, tst_imm_xform, tst_ror_xform, mov_xform, mov_imm, movz_imm, lsr, mvn_xzr, csinv, and_twoarg, cmp_imm,
      csneg, csel_ne, csel_xzr_ne, 
      mul_xform, sub, lsl, asr, sub_imm): ExecutionUnit.SCALAR(),
     (VShiftImmediateRounding, VShiftImmediateBasic): [ExecutionUnit.ASIMD1],
@@ -223,11 +233,13 @@ execution_units = {
         [ExecutionUnit.ASIMD0, ExecutionUnit.LOAD0, ExecutionUnit.LOAD1],
         [ExecutionUnit.ASIMD1, ExecutionUnit.LOAD0, ExecutionUnit.LOAD1],
     ],
-    (vand, vorr, vmov): [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
+    (vand, vorr, vmov, vmovi): [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
     madd_xform: ExecutionUnit.SCALAR(),
-    smov_s: ExecutionUnit.INT() + ExecutionUnit.LOAD(),
+    smov_s: [ExecutionUnit.INT(), ExecutionUnit.LOAD()],
     vsshll: ExecutionUnit.ASIMD1,
-    smulh_xform: ExecutionUnit.MINT()
+    smulh_xform: ExecutionUnit.MINT(),
+    vdup_sform_genreg: [ExecutionUnit.LOAD(), ExecutionUnit.ASIMD()],
+
 }
 
 inverse_throughput = {
@@ -256,6 +268,7 @@ inverse_throughput = {
     St4: 8,
     Ld3: 3,
     Ld4: 4,
+    Ldp_X: 2,
     sbfx: 1,
     ubfx: 1,
     and_imm: 1,
@@ -279,6 +292,17 @@ inverse_throughput = {
     smulh_xform: 4,
     lsr: 1,
     orr: 1,
+    mov_imm: 1,
+    vmovi: 1,
+    movz_imm: 1,
+    movk_imm_shift_16: 1,
+    vdup_sform_genreg: 2,
+    subs_imm: 1,
+    mvn_xzr: 1,
+    csinv: 1,
+    and_twoarg: 1,
+    cmp_imm: 1,
+
 
 }
 
@@ -316,6 +340,7 @@ default_latencies = {
     St4: 8,
     Ld3: 3,
     Ld4: 4,
+    Ldp_X: 4,
     sbfx: 1,
     ubfx: 1,
     and_imm: 1,
@@ -341,6 +366,17 @@ default_latencies = {
     adc: 1,
     lsr: 1,
     orr: 1,
+    mov_imm: 1,
+    vmovi: 3,
+    movz_imm: 1,
+    movk_imm_shift_16: 1,
+    vdup_sform_genreg: 8,
+    subs_imm: 1,
+    mvn_xzr: 1,
+    csinv: 1,
+    and_twoarg: 1,
+    cmp_imm: 1,
+    
 }
 
 
