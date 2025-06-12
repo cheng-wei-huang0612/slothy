@@ -131,6 +131,7 @@ from slothy.targets.aarch64.aarch64_neon import (
     csinv,
     and_twoarg,
     cmp_imm,
+    extr
 )
 
 # From the A72 SWOG, Section "4.1 Dispatch Constraints"
@@ -225,7 +226,7 @@ execution_units = {
     (Str_Q, Str_X, Stp_X, d_stp_stack_with_inc_writeback): ExecutionUnit.STORE(),
     (add, add_imm, add_lsl, add_lsr, sbfx, ubfx, adds_twoarg, adc, orr, movk_imm_shift_16, subs_imm,
      and_imm, tst_imm_xform, tst_ror_xform, mov_xform, mov_imm, movz_imm, lsr, mvn_xzr, csinv, and_twoarg, cmp_imm,
-     csneg, csel_ne, csel_xzr_ne, 
+     csneg, csel_ne, csel_xzr_ne, extr,
      mul_xform, sub, lsl, asr, sub_imm): ExecutionUnit.SCALAR(),
     (VShiftImmediateRounding, VShiftImmediateBasic): [ExecutionUnit.ASIMD1],
     (St4, St3, St2): [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
@@ -302,6 +303,7 @@ inverse_throughput = {
     csinv: 1,
     and_twoarg: 1,
     cmp_imm: 1,
+    extr: 1,
 
 
 }
@@ -376,6 +378,8 @@ default_latencies = {
     csinv: 1,
     and_twoarg: 1,
     cmp_imm: 1,
+    extr: 1,
+
     
 }
 
