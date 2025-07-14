@@ -413,6 +413,12 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.RegisterType.StackGPR
 
+   .. py:attribute:: HINT
+      :canonical: slothy.targets.arm_v81m.arch_v81m.RegisterType.HINT
+      :value: (5,)
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.RegisterType.HINT
+
    .. py:method:: __str__()
       :canonical: slothy.targets.arm_v81m.arch_v81m.RegisterType.__str__
 
@@ -1171,17 +1177,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.outputs
       :value: ['Rt0', 'Rt1']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.make
@@ -1198,17 +1204,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.outputs
       :value: ['Rt0', 'Rt1']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.make
@@ -1255,17 +1261,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.outputs
       :value: ['Rt']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.make
@@ -1282,17 +1288,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldr_with_post.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.ldr_with_post.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldr_with_post.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.ldr_with_post.outputs
       :value: ['Rt']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldr_with_post.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.ldr_with_post.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.ldr_with_post.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.ldr_with_post.make
@@ -1335,9 +1341,15 @@ API
 
    .. py:attribute:: inputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.inputs
-      :value: ['Rt0', 'Rt1', 'Rn']
+      :value: ['Rt0', 'Rt1']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.inputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.make
@@ -1356,9 +1368,15 @@ API
 
    .. py:attribute:: inputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.strd_with_post.inputs
-      :value: ['Rt0', 'Rt1', 'Rn']
+      :value: ['Rt0', 'Rt1']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.strd_with_post.inputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.strd_with_post.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.strd_with_post.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.strd_with_post.make
@@ -1437,12 +1455,6 @@ API
       :value: 'vmov.<dt> <Qd>, <imm>'
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vmov_imm.pattern
-
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vmov_imm.inputs
-      :value: []
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vmov_imm.inputs
 
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vmov_imm.outputs
@@ -1576,12 +1588,6 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.mov_imm.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.mov_imm.inputs
-      :value: []
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.mov_imm.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.mov_imm.outputs
       :value: ['Rd']
@@ -1598,12 +1604,6 @@ API
       :value: 'mvn <Rd>, <imm>'
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.mvn_imm.pattern
-
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.mvn_imm.inputs
-      :value: []
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.mvn_imm.inputs
 
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.mvn_imm.outputs
@@ -2419,9 +2419,15 @@ API
 
    .. py:attribute:: inputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.inputs
-      :value: ['Qd', 'Rn']
+      :value: ['Qd']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.inputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.make
@@ -2440,9 +2446,15 @@ API
 
    .. py:attribute:: inputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.inputs
-      :value: ['Qd', 'Rn']
+      :value: ['Qd']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.inputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.make
@@ -2561,17 +2573,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.outputs
       :value: ['Qd']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.make
@@ -2588,17 +2600,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.outputs
       :value: ['Qd']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.make
@@ -2675,17 +2687,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.outputs
       :value: ['Qd']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.make
@@ -2702,17 +2714,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.outputs
       :value: ['Qd']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.make
@@ -2789,17 +2801,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.outputs
       :value: ['Qd']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.make
@@ -2816,17 +2828,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.outputs
       :value: ['Qd']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.make
@@ -3059,17 +3071,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.outputs
       :value: ['Qd0', 'Qd1']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.make
@@ -3086,15 +3098,9 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.inputs
-
    .. py:attribute:: in_outs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.in_outs
-      :value: ['Qd0', 'Qd1']
+      :value: ['Rn', 'Qd0', 'Qd1']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.in_outs
 
@@ -3221,17 +3227,17 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.inputs
-
    .. py:attribute:: outputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.outputs
       :value: ['Qd0', 'Qd1', 'Qd2', 'Qd3']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.outputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.make
@@ -3248,15 +3254,9 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.inputs
-
    .. py:attribute:: in_outs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.in_outs
-      :value: ['Qd0', 'Qd1', 'Qd2', 'Qd3']
+      :value: ['Rn', 'Qd0', 'Qd1', 'Qd2', 'Qd3']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.in_outs
 
@@ -3275,15 +3275,9 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.inputs
-
    .. py:attribute:: in_outs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.in_outs
-      :value: ['Qd0', 'Qd1', 'Qd2', 'Qd3']
+      :value: ['Rn', 'Qd0', 'Qd1', 'Qd2', 'Qd3']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.in_outs
 
@@ -3302,15 +3296,9 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.inputs
-
    .. py:attribute:: in_outs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.in_outs
-      :value: ['Qd0', 'Qd1', 'Qd2', 'Qd3']
+      :value: ['Rn', 'Qd0', 'Qd1', 'Qd2', 'Qd3']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.in_outs
 
@@ -3377,15 +3365,9 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.inputs
-
    .. py:attribute:: in_outs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.in_outs
-      :value: ['Qd0', 'Qd1']
+      :value: ['Rn', 'Qd0', 'Qd1']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.in_outs
 
@@ -3406,9 +3388,15 @@ API
 
    .. py:attribute:: inputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.inputs
-      :value: ['Rn', 'Qd0', 'Qd1']
+      :value: ['Qd0', 'Qd1']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.inputs
+
+   .. py:attribute:: in_outs
+      :canonical: slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.in_outs
+      :value: ['Rn']
+
+      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.in_outs
 
    .. py:method:: make(src)
       :canonical: slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.make
@@ -3527,15 +3515,9 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.inputs
-
    .. py:attribute:: in_outs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.in_outs
-      :value: ['Qd0', 'Qd1', 'Qd2', 'Qd3']
+      :value: ['Rn', 'Qd0', 'Qd1', 'Qd2', 'Qd3']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.in_outs
 
@@ -3554,15 +3536,9 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.inputs
-
    .. py:attribute:: in_outs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.in_outs
-      :value: ['Qd0', 'Qd1', 'Qd2', 'Qd3']
+      :value: ['Rn', 'Qd0', 'Qd1', 'Qd2', 'Qd3']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.in_outs
 
@@ -3581,15 +3557,9 @@ API
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.pattern
 
-   .. py:attribute:: inputs
-      :canonical: slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.inputs
-      :value: ['Rn']
-
-      .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.inputs
-
    .. py:attribute:: in_outs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.in_outs
-      :value: ['Qd0', 'Qd1', 'Qd2', 'Qd3']
+      :value: ['Rn', 'Qd0', 'Qd1', 'Qd2', 'Qd3']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.in_outs
 
@@ -3610,7 +3580,7 @@ API
 
    .. py:attribute:: inputs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.inputs
-      :value: ['Rn', 'Qd0', 'Qd1', 'Qd2', 'Qd3']
+      :value: ['Qd0', 'Qd1', 'Qd2', 'Qd3']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.inputs
 
@@ -3622,7 +3592,7 @@ API
 
    .. py:attribute:: in_outs
       :canonical: slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.in_outs
-      :value: []
+      :value: ['Rn']
 
       .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.in_outs
 
@@ -3839,6 +3809,11 @@ API
    :canonical: slothy.targets.arm_v81m.arch_v81m.all_subclass_leaves
 
    .. autodoc2-docstring:: slothy.targets.arm_v81m.arch_v81m.all_subclass_leaves
+
+.. py:exception:: UnknownInstruction()
+   :canonical: slothy.targets.arm_v81m.arch_v81m.UnknownInstruction
+
+   Bases: :py:obj:`Exception`
 
 .. py:function:: lookup_multidict(d, inst, default=None)
    :canonical: slothy.targets.arm_v81m.arch_v81m.lookup_multidict

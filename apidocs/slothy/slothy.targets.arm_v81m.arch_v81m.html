@@ -20,8 +20,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="slothy.targets.arm_v81m.cortex_m85r1" href="slothy.targets.arm_v81m.cortex_m85r1.html" />
-    <link rel="prev" title="slothy.targets.arm_v81m.cortex_m55r1" href="slothy.targets.arm_v81m.cortex_m55r1.html" /> 
+    <link rel="next" title="slothy.targets.aarch64" href="slothy.targets.aarch64.html" />
+    <link rel="prev" title="slothy.targets.arm_v81m.cortex_m85r1" href="slothy.targets.arm_v81m.cortex_m85r1.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -617,6 +617,11 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.RegisterType.StackGPR">
 <span class="sig-name descname"><span class="pre">StackGPR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(4,)</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.RegisterType.StackGPR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.RegisterType.HINT">
+<span class="sig-name descname"><span class="pre">HINT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(5,)</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.RegisterType.HINT" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1371,13 +1376,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt0',</span> <span class="pre">'Rt1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt0',</span> <span class="pre">'Rt1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldrd_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1397,13 +1402,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt0',</span> <span class="pre">'Rt1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt0',</span> <span class="pre">'Rt1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldrd_with_post.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1454,13 +1459,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldr_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1480,13 +1485,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldr_with_post.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldr_with_post.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldr_with_post.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldr_with_post.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldr_with_post.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldr_with_post.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.ldr_with_post.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.ldr_with_post.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1533,7 +1538,12 @@ of a subclass of Instruction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt0',</span> <span class="pre">'Rt1',</span> <span class="pre">'Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.inputs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt0',</span> <span class="pre">'Rt1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.strd_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1554,7 +1564,12 @@ of a subclass of Instruction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.strd_with_post.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt0',</span> <span class="pre">'Rt1',</span> <span class="pre">'Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.strd_with_post.inputs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rt0',</span> <span class="pre">'Rt1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.strd_with_post.inputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.strd_with_post.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.strd_with_post.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1629,11 +1644,6 @@ of a subclass of Instruction.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vmov_imm.pattern">
 <span class="sig-name descname"><span class="pre">pattern</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'vmov.&lt;dt&gt;</span> <span class="pre">&lt;Qd&gt;,</span> <span class="pre">&lt;imm&gt;'</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vmov_imm.pattern" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vmov_imm.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vmov_imm.inputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1758,11 +1768,6 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.mov_imm.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.mov_imm.inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.mov_imm.outputs">
 <span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.mov_imm.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
@@ -1776,11 +1781,6 @@ of a subclass of Instruction.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.mvn_imm.pattern">
 <span class="sig-name descname"><span class="pre">pattern</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'mvn</span> <span class="pre">&lt;Rd&gt;,</span> <span class="pre">&lt;imm&gt;'</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.mvn_imm.pattern" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.mvn_imm.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.mvn_imm.inputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -2536,7 +2536,12 @@ of a subclass of Instruction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd',</span> <span class="pre">'Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.inputs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vstrw_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2557,7 +2562,12 @@ of a subclass of Instruction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd',</span> <span class="pre">'Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.inputs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.inputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vstrw_with_post.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2681,13 +2691,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrb_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2707,13 +2717,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrb_with_post.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2795,13 +2805,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrh_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2821,13 +2831,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrh_with_post.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2909,13 +2919,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrw_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -2935,13 +2945,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vldrw_with_post.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3169,13 +3179,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld20_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3195,13 +3205,8 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.in_outs">
-<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.in_outs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld21_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3325,13 +3330,13 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.outputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.outputs">
-<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.outputs" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld40_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3351,13 +3356,8 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.in_outs">
-<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.in_outs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld41_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3377,13 +3377,8 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.in_outs">
-<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.in_outs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld42_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3403,13 +3398,8 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.in_outs">
-<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.in_outs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vld43_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3476,13 +3466,8 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.in_outs">
-<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.in_outs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst20_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3503,7 +3488,12 @@ of a subclass of Instruction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.inputs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.inputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.in_outs">
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst21_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3622,13 +3612,8 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.in_outs">
-<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.in_outs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst40_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3648,13 +3633,8 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.in_outs">
-<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.in_outs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst41_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3674,13 +3654,8 @@ of a subclass of Instruction.</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.inputs" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.in_outs">
-<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.in_outs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst42_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3701,7 +3676,7 @@ of a subclass of Instruction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.inputs">
-<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn',</span> <span class="pre">'Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.inputs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Qd0',</span> <span class="pre">'Qd1',</span> <span class="pre">'Qd2',</span> <span class="pre">'Qd3']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.inputs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -3711,7 +3686,7 @@ of a subclass of Instruction.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.in_outs">
-<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.in_outs" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">in_outs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['Rn']</span></em><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.vst43_with_writeback.in_outs" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -3919,6 +3894,12 @@ of a subclass of Instruction.</p>
 <span class="sig-prename descclassname"><span class="pre">slothy.targets.arm_v81m.arch_v81m.</span></span><span class="sig-name descname"><span class="pre">all_subclass_leaves</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.all_subclass_leaves" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
+<dl class="py exception">
+<dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.UnknownInstruction">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">slothy.targets.arm_v81m.arch_v81m.</span></span><span class="sig-name descname"><span class="pre">UnknownInstruction</span></span><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.UnknownInstruction" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="slothy.targets.arm_v81m.arch_v81m.lookup_multidict">
 <span class="sig-prename descclassname"><span class="pre">slothy.targets.arm_v81m.arch_v81m.</span></span><span class="sig-name descname"><span class="pre">lookup_multidict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#slothy.targets.arm_v81m.arch_v81m.lookup_multidict" title="Link to this definition"></a></dt>
@@ -3942,8 +3923,8 @@ of a subclass of Instruction.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="slothy.targets.arm_v81m.cortex_m55r1.html" class="btn btn-neutral float-left" title="slothy.targets.arm_v81m.cortex_m55r1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="slothy.targets.arm_v81m.cortex_m85r1.html" class="btn btn-neutral float-right" title="slothy.targets.arm_v81m.cortex_m85r1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="slothy.targets.arm_v81m.cortex_m85r1.html" class="btn btn-neutral float-left" title="slothy.targets.arm_v81m.cortex_m85r1" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="slothy.targets.aarch64.html" class="btn btn-neutral float-right" title="slothy.targets.aarch64" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
