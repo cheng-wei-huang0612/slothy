@@ -7,12 +7,12 @@ if __name__ == "__main__":
 from slothy import Slothy
 
 import slothy.targets.aarch64.aarch64_neon as AArch64_Neon
-import slothy.targets.aarch64.cortex_a55 as Target_CortexA55
+import slothy.targets.aarch64.cortex_a76_frontend as Target_CortexA76
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 arch = AArch64_Neon
-target = Target_CortexA55
+target = Target_CortexA76
 
 slothy = Slothy(arch, target)
 

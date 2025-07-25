@@ -143,12 +143,12 @@ from slothy.targets.aarch64.aarch64_neon import (
 # The name `issue_rate` is a slight misnomer here because we're
 # modelling the frontend, not the backend, but `issue_width` is
 # what SLOTHY expects.
-issue_rate = 3
-llvm_mca_target = "cortex-a72"
+issue_rate = 4
+llvm_mca_target = "cortex-a76"
 
 
 class ExecutionUnit(Enum):
-    """Enumeration of execution units in approximative Cortex-A72 SLOTHY model"""
+    """Enumeration of execution units in approximative Cortex-A76 SLOTHY model"""
 
     LOAD0 = auto()
     LOAD1 = auto()
@@ -225,7 +225,7 @@ execution_units = {
         ExecutionUnit.ASIMD1,
     ],
     Vins: [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
-    (umov_d, umov_s): ExecutionUnit.LOAD(),  # ???
+    umov_d: ExecutionUnit.LOAD(),  # ???
     (Ldr_Q, Ldr_X, Ldp_X): ExecutionUnit.LOAD(),
     q_ldp_stack_with_inc: [ExecutionUnit.LOAD(), ExecutionUnit.INT()],
     (Str_Q, Str_X, Stp_X, d_stp_stack_with_inc_writeback): ExecutionUnit.STORE(),
@@ -242,9 +242,11 @@ execution_units = {
     (vand, vorr, vmov, vmovi): [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
     madd_xform: ExecutionUnit.SCALAR(),
     smov_s: [ExecutionUnit.INT(), ExecutionUnit.LOAD()],
-    (vsshll, vushll): ExecutionUnit.ASIMD1,
+    (vsshll, vushll, umov_s): ExecutionUnit.ASIMD1,
     smulh_xform: ExecutionUnit.MINT(),
-    (vdup_sform_genreg, vdup): [ExecutionUnit.LOAD(), ExecutionUnit.ASIMD()],
+    vdup_sform_genreg: [ExecutionUnit.LOAD(), ExecutionUnit.ASIMD()],
+    vdup: [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
+
 
 }
 
@@ -303,6 +305,7 @@ inverse_throughput = {
     movz_imm: 1,
     movk_imm_shift_16: 1,
     vdup_sform_genreg: 2,
+    vdup: 1,
     subs_imm: 1,
     mvn_xzr: 1,
     csinv: 1,
@@ -310,9 +313,8 @@ inverse_throughput = {
     cmp_imm: 1,
     extr: 1,
     umov_s: 1,
-    vdup: 1,
     vushll: 1,
-    q_ldp_stack_with_inc: 2
+    q_ldp_stack_with_inc: 2,
 
 }
 
@@ -381,16 +383,18 @@ default_latencies = {
     movz_imm: 1,
     movk_imm_shift_16: 1,
     vdup_sform_genreg: 8,
+    vdup: 2,
     subs_imm: 1,
     mvn_xzr: 1,
     csinv: 1,
     and_twoarg: 1,
     cmp_imm: 1,
     extr: 1,
-    umov_s: 5,
-    vdup: 8,
-    vushll: 3,
-    q_ldp_stack_with_inc: 4,
+    umov_s: 2,
+    vushll: 2,
+    q_ldp_stack_with_inc: 7,
+
+
     
 }
 

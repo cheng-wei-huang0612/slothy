@@ -1458,6 +1458,23 @@ class q_ld1_with_inc(Ldr_Q):
         return super().write()
 
 
+class q_ldp_stack_with_inc(Ldp_Q):
+    pattern = "ldp <Qa>, <Qb>, [sp, <imm>]"
+    inputs = []
+    outputs = ["Qa", "Qb"]
+
+    @classmethod
+    def make(cls, src):
+        obj = AArch64Instruction.build(cls, src)
+        obj.increment = None
+        obj.pre_index = obj.immediate
+        obj.addr = "sp"
+        return obj
+
+    def write(self):
+        self.immediate = simplify(self.pre_index)
+        return super().write()
+
 class q_ldp_with_inc(Ldp_Q):
     pattern = "ldp <Qa>, <Qb>, [<Xc>, <imm>]"
     inputs = ["Xc"]
@@ -1474,7 +1491,6 @@ class q_ldp_with_inc(Ldp_Q):
     def write(self):
         self.immediate = simplify(self.pre_index)
         return super().write()
-
 
 class q_ldr_with_inc_writeback(Ldr_Q):
     pattern = "ldr <Qa>, [<Xc>, <imm>]!"
@@ -3456,6 +3472,10 @@ class vshl_d(AArch64Instruction):
     inputs = ["Da"]
     outputs = ["Dd"]
 
+class vushll(AArch64Instruction):
+    pattern = "ushll <Vd>.<dt0>, <Va>.<dt1>, <imm>"
+    inputs = ["Va"]
+    outputs = ["Vd"]
 
 class vshli(AArch64Instruction):
     pattern = "sli <Vd>.<dt0>, <Va>.<dt1>, <imm>"
@@ -3489,6 +3509,11 @@ class umov_d(VecToGprMov):
     pattern = "umov <Xd>, <Va>.d[<index>]"
     inputs = ["Va"]
     outputs = ["Xd"]
+
+class umov_s(VecToGprMov):
+    pattern = "umov <Wd>, <Va>.s[<index>]"
+    inputs = ["Va"]
+    outputs = ["Wd"]
 
 class smov_d(VecToGprMov):
     pattern = "smov <Xd>, <Va>.d[<index>]"
