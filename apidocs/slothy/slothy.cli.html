@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>slothy.targets.arm_v81m &mdash; SLOTHY  documentation</title>
+  <title>slothy.cli &mdash; SLOTHY  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/style.css?v=96fe82d1" />
@@ -20,8 +20,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="slothy.targets.arm_v81m.cortex_m55r1" href="slothy.targets.arm_v81m.cortex_m55r1.html" />
-    <link rel="prev" title="slothy.targets" href="slothy.targets.html" /> 
+    <link rel="next" title="slothy.core" href="slothy.core.html" />
+    <link rel="prev" title="slothy" href="slothy.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,9 +60,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="slothy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy</span></code></a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="slothy.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="slothy.cli.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.cli</span></code></a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.cli</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="slothy.core.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.core</span></code></a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="slothy.targets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.targets</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="slothy.targets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.targets</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="slothy.html#submodules">Submodules</a></li>
@@ -89,10 +89,9 @@
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">API Reference</a></li>
           <li class="breadcrumb-item"><a href="slothy.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy</span></code></a></li>
-          <li class="breadcrumb-item"><a href="slothy.targets.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.targets</span></code></a></li>
-      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.targets.arm_v81m</span></code></li>
+      <li class="breadcrumb-item active"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.cli</span></code></li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../_sources/apidocs/slothy/slothy.targets.arm_v81m.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/apidocs/slothy/slothy.cli.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -100,18 +99,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-slothy.targets.arm_v81m">
-<span id="slothy-targets-arm-v81m"></span><h1><a class="reference internal" href="#module-slothy.targets.arm_v81m" title="slothy.targets.arm_v81m"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.targets.arm_v81m</span></code></a><a class="headerlink" href="#module-slothy.targets.arm_v81m" title="Link to this heading"></a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="slothy.targets.arm_v81m.cortex_m55r1.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.targets.arm_v81m.cortex_m55r1</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="slothy.targets.arm_v81m.helium_experimental.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.targets.arm_v81m.helium_experimental</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="slothy.targets.arm_v81m.cortex_m85r1.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.targets.arm_v81m.cortex_m85r1</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="slothy.targets.arm_v81m.arch_v81m.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.targets.arm_v81m.arch_v81m</span></code></a></li>
-</ul>
-</div>
+  <section id="module-slothy.cli">
+<span id="slothy-cli"></span><h1><a class="reference internal" href="#module-slothy.cli" title="slothy.cli"><code class="xref py py-mod docutils literal notranslate"><span class="pre">slothy.cli</span></code></a><a class="headerlink" href="#module-slothy.cli" title="Link to this heading"></a></h1>
+<section id="package-contents">
+<h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading"></a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h3>
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#slothy.cli.main" title="slothy.cli.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a></p></td>
+<td><p>Main entry point for the slothy-cli command.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Link to this heading"></a></h3>
+<dl class="py exception">
+<dt class="sig sig-object py" id="slothy.cli.CmdLineException">
+<em class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">slothy.cli.</span></span><span class="sig-name descname"><span class="pre">CmdLineException</span></span><a class="headerlink" href="#slothy.cli.CmdLineException" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Exception thrown when a problem is encountered with the command line parameters</p>
+<p class="rubric">Initialization</p>
+<p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="slothy.cli.main">
+<span class="sig-prename descclassname"><span class="pre">slothy.cli.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#slothy.cli.main" title="Link to this definition"></a></dt>
+<dd><p>Main entry point for the slothy-cli command.</p>
+</dd></dl>
+
+</section>
 </section>
 </section>
 
@@ -119,8 +138,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="slothy.targets.html" class="btn btn-neutral float-left" title="slothy.targets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="slothy.targets.arm_v81m.cortex_m55r1.html" class="btn btn-neutral float-right" title="slothy.targets.arm_v81m.cortex_m55r1" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="slothy.html" class="btn btn-neutral float-left" title="slothy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="slothy.core.html" class="btn btn-neutral float-right" title="slothy.core" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
