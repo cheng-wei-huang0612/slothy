@@ -70,6 +70,14 @@ smlsl v6.4s, v7.4h, v8.h[3]
 smlsl2 v9.4s, v10.8h, v11.8h
 smlsl2 v9.4s, v10.8h, v11.h[2]
 
+// ASIMD multiply accumulate saturating long
+sqdmlal v3.4s, v4.4h, v5.4h
+sqdmlal2 v3.4s, v4.8h, v5.8h
+sqdmlsl v3.4s, v4.4h, v5.4h
+sqdmlsl2 v3.4s, v4.8h, v5.8h
+
+
+
 pmull v4.1q, v5.1d, v6.1d
 pmull2 v7.1q, v8.2d, v9.2d
 

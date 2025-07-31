@@ -2393,6 +2393,11 @@ class add(AArch64BasicArithmetic):
     inputs = ["Xa", "Xb"]
     outputs = ["Xd"]
 
+class add_xzr_lsr(AArch64BasicArithmetic):
+    pattern = "add <Xd>, xzr, <Xb>, lsr <imm>"
+    inputs = ["Xb"]
+    outputs = ["Xd"]
+
 
 class add2(AArch64BasicArithmetic):
     pattern = "add <Xd>, <Xa>, <Xb>, <imm>"
@@ -2646,6 +2651,12 @@ class cneg(AArch64ConditionalSelect):
     outputs = ["Xd"]
     dependsOnFlags = True
 
+class csneg(AArch64ConditionalSelect):
+    pattern = "csneg <Xd>, <Xe>, <Xf>, <flag>"
+    inputs = ["Xe", "Xf"]
+    outputs = ["Xd"]
+    dependsOnFlags = True
+
 
 class csel_xzr_ne(AArch64ConditionalSelect):
     pattern = "csel <Xd>, <Xe>, xzr, <flag>"
@@ -2838,6 +2849,11 @@ class tst_imm_xform(Tst):
 
 class tst_xform(Tst):
     pattern = "tst <Xa>, <Xb>"
+    inputs = ["Xa", "Xb"]
+    modifiesFlags = True
+
+class tst_ror_xform(Tst):
+    pattern = "tst <Xa>, <Xb>, ror <imm>"
     inputs = ["Xa", "Xb"]
     modifiesFlags = True
 
@@ -3572,6 +3588,12 @@ class vuxtl(VShiftImmediateBasic):
     outputs = ["Vd"]
 
 
+class vushll(VShiftImmediateBasic):
+    pattern = "ushll <Vd>.<dt0>, <Va>.<dt1>, <imm>"
+    inputs = ["Va"]
+    outputs = ["Vd"]
+
+
 class VShiftImmediateRounding(AArch64Instruction):
     pass
 
@@ -3619,6 +3641,10 @@ class umov_d(VecToGprMov):
     inputs = ["Va"]
     outputs = ["Xd"]
 
+class umov_s(VecToGprMov):
+    pattern = "umov <Wd>, <Va>.s[<index>]"
+    inputs = ["Va"]
+    outputs = ["Wd"]
 
 class mov_d(VecToGprMov):
     pattern = "mov <Xd>, <Va>.d[<index>]"

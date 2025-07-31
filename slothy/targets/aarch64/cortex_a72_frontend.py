@@ -82,6 +82,7 @@ from slothy.targets.aarch64.aarch64_neon import (
     ASimdCompare,
     Vins,
     umov_d,
+    umov_s,
     AArch64Move,
     add,
     add_imm,
@@ -103,6 +104,29 @@ from slothy.targets.aarch64.aarch64_neon import (
     sub_imm,
     vuaddlv_sform,
     fmov_s_form,  # from vec to gen reg
+    cmp_xzr,
+    csetm,
+    csneg,
+    csel_ne,
+    cneg,
+    and_twoarg, 
+    eor,
+    mul_xform,
+    madd_xform,
+    umulh_xform,
+    adds_twoarg,
+    adc_zero_r,
+    adc,
+    extr,
+    add_xzr_lsr,
+    vdup,
+    and_imm,
+    orr_imm,
+    tst_imm_xform,
+    csel_xzr_ne,
+    tst_ror_xform,
+    asr,
+    lsl,
 )
 
 # From the A72 SWOG, Section "4.1 Dispatch Constraints"
@@ -203,7 +227,7 @@ execution_units = {
     # 8B/8H occupies both F0, F1
     vuaddlv_sform: [[ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1]],
     Vins: [ExecutionUnit.ASIMD0, ExecutionUnit.ASIMD1],
-    umov_d: ExecutionUnit.LOAD(),  # ???
+    (umov_d, umov_s): ExecutionUnit.LOAD(),  # ???
     (Ldr_Q, Ldr_X): ExecutionUnit.LOAD(),
     (Str_Q, Str_X): ExecutionUnit.STORE(),
     AArch64Move: ExecutionUnit.SCALAR(),
@@ -216,7 +240,15 @@ execution_units = {
     ],
     AESInstruction: [ExecutionUnit.ASIMD0],
     fmov_s_form: ExecutionUnit.LOAD(),  # from vec to gen reg
-}
+    (cmp_xzr, csetm, cneg, csneg, csel_ne): [ExecutionUnit.INT0, ExecutionUnit.INT1],
+    (and_twoarg, eor, and_imm, orr_imm, tst_imm_xform, csel_xzr_ne): [ExecutionUnit.INT0, ExecutionUnit.INT1],
+    (mul_xform, umulh_xform): [ExecutionUnit.SCALAR()],
+    (adds_twoarg, adc_zero_r, adc): [ExecutionUnit.INT0, ExecutionUnit.INT1],
+    extr: ExecutionUnit.SCALAR(),
+    (add_xzr_lsr, tst_ror_xform): ExecutionUnit.SCALAR(),
+    vdup: ExecutionUnit.LOAD() + ExecutionUnit.ASIMD(),
+    (asr, lsl): ExecutionUnit.SCALAR(),
+    madd_xform: ExecutionUnit.SCALAR(),}
 
 inverse_throughput = {
     (
@@ -239,7 +271,7 @@ inverse_throughput = {
     AArch64NeonLogical: 1,
     AArch64NeonShiftInsert: 1,
     Vins: 1,
-    umov_d: 1,
+    (umov_d, umov_s): 1,
     (add, add_imm, add_lsl, add_lsr): 1,
     (Ldr_Q, Str_Q, Ldr_X, Str_X): 1,
     (VShiftImmediateRounding, VShiftImmediateBasic): 1,
@@ -255,7 +287,20 @@ inverse_throughput = {
     sub_imm: 1,
     vuaddlv_sform: 1,
     fmov_s_form: 1,  # from vec to gen reg
+    cmp_xzr:1,
+    (csetm, cneg, csneg, csel_ne):1,
+    (and_twoarg, eor, and_imm, orr_imm, tst_imm_xform, csel_xzr_ne):1,
+    (mul_xform): 1,
+    umulh_xform: 4,
+    (adds_twoarg, adc_zero_r, adc): 1,
+    extr: 1,
+    (add_xzr_lsr, tst_ror_xform): 1,
+    vdup: 1,
+    (asr,lsl): 1,
+    madd_xform: 3,
+
 }
+
 
 # REVISIT
 default_latencies = {
@@ -285,7 +330,7 @@ default_latencies = {
     AArch64NeonShiftInsert: 3,
     (Ldr_Q, Ldr_X, Str_Q, Str_X): 4,  # approx
     Vins: 6,  # approx
-    umov_d: 4,  # approx
+    (umov_d, umov_s): 5, # approx. Cesare read from swog
     (add, add_imm, add_lsl, add_lsr): 2,
     VShiftImmediateRounding: 3,  # approx
     VShiftImmediateBasic: 3,
@@ -302,6 +347,18 @@ default_latencies = {
     sub_imm: 3,
     vuaddlv_sform: 6,  # 8B/8H
     fmov_s_form: 5,  # from vec to gen reg
+    cmp_xzr:1,
+    (csetm, cneg, csneg, csel_ne):1,
+    (and_twoarg, eor, and_imm, orr_imm, tst_imm_xform, csel_xzr_ne):1,
+    (mul_xform): 3,
+    umulh_xform: 6,
+    (adds_twoarg, adc_zero_r, adc): 1,
+    extr: 3,
+    (add_xzr_lsr, tst_ror_xform): 2,
+    vdup: 8,
+    (asr,lsl): 1,
+    madd_xform: 5,
+
 }
 
 
