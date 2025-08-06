@@ -135,12 +135,12 @@ from slothy.targets.aarch64.aarch64_neon import (
 # The name `issue_rate` is a slight misnomer here because we're
 # modelling the frontend, not the backend, but `issue_width` is
 # what SLOTHY expects.
-issue_rate = 3
-llvm_mca_target = "cortex-a72"
+issue_rate = 4
+llvm_mca_target = "cortex-a76"
 
 
 class ExecutionUnit(Enum):
-    """Enumeration of execution units in approximative Cortex-A72 SLOTHY model"""
+    """Enumeration of execution units in approximative Cortex-A76 SLOTHY model"""
 
     LOAD0 = auto()
     LOAD1 = auto()
