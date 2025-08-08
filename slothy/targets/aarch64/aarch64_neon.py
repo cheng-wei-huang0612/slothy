@@ -2627,19 +2627,46 @@ class AArch64ConditionalCompare(AArch64Instruction):
     pass
 
 
-class ccmp_xzr(AArch64ConditionalCompare):
-    pattern = "ccmp <Xa>, xzr, <imm>, <flag>"
-    inputs = ["Xa"]
-    modifiesFlags = True
-    dependsOnFlags = True
-
-
 class ccmp(AArch64ConditionalCompare):
     pattern = "ccmp <Xa>, <Xb>, <imm>, <flag>"
     inputs = ["Xa", "Xb"]
     modifiesFlags = True
     dependsOnFlags = True
 
+
+class ccmp_xzr(AArch64ConditionalCompare):
+    pattern = "ccmp xzr, <Xa>, <imm>, <flag>"
+    inputs = ["Xa"]
+    modifiesFlags = True
+    dependsOnFlags = True
+
+
+class ccmp_xzr2(AArch64ConditionalCompare):
+    pattern = "ccmp <Xa>, xzr, <imm>, <flag>"
+    inputs = ["Xa"]
+    modifiesFlags = True
+    dependsOnFlags = True
+
+
+class ccmn(AArch64ConditionalCompare):
+    pattern = "ccmn <Xa>, <Xb>, <imm>, <flag>"
+    inputs = ["Xa", "Xb"]
+    modifiesFlags = True
+    dependsOnFlags = True
+
+
+class ccmn_xzr(AArch64ConditionalCompare):
+    pattern = "ccmn xzr, <Xa>, <imm>, <flag>"
+    inputs = ["Xa"]
+    modifiesFlags = True
+    dependsOnFlags = True
+
+
+class ccmn_xzr2(AArch64ConditionalCompare):
+    pattern = "ccmn <Xa>, xzr, <imm>, <flag>"
+    inputs = ["Xa"]
+    modifiesFlags = True
+    dependsOnFlags = True
 
 class AArch64ConditionalSelect(AArch64Instruction):
     pass

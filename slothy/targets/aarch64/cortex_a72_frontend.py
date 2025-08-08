@@ -58,6 +58,7 @@ from slothy.targets.aarch64.aarch64_neon import (
     lookup_multidict,
     find_class,
     all_subclass_leaves,
+    AArch64ConditionalCompare,
     Ldr_X,
     Str_X,
     Ldr_Q,
@@ -249,7 +250,10 @@ execution_units = {
     (add_xzr_lsr, tst_ror_xform): ExecutionUnit.SCALAR(),
     vdup: ExecutionUnit.LOAD() + ExecutionUnit.ASIMD(),
     (asr, lsl): ExecutionUnit.SCALAR(),
-    madd_xform: ExecutionUnit.SCALAR(),}
+    madd_xform: ExecutionUnit.SCALAR(),
+    AArch64ConditionalCompare: ExecutionUnit.SCALAR(),
+    
+    }
 
 inverse_throughput = {
     (
@@ -299,6 +303,7 @@ inverse_throughput = {
     vdup: 1,
     (asr,lsl): 1,
     madd_xform: 3,
+    AArch64ConditionalCompare: 1,
 
 }
 
@@ -359,6 +364,8 @@ default_latencies = {
     vdup: 8,
     (asr,lsl): 1,
     madd_xform: 5,
+    AArch64ConditionalCompare: 1,
+
 
 }
 

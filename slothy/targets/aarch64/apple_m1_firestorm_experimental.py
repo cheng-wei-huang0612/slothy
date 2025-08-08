@@ -37,6 +37,7 @@ from itertools import combinations, product
 from slothy.targets.aarch64.aarch64_neon import (
     lookup_multidict,
     find_class,
+    AArch64ConditionalCompare,
     Ldr_X,
     Str_X,
     Ldr_Q,
@@ -296,6 +297,7 @@ execution_units = {
     (Ldr_X, x_ldr_stack_imm, ldr_sxtw_wform, ldr_const): ExecutionUnit.LOAD(),
     (Str_X, x_str_sp_imm): ExecutionUnit.STORE(),
     (x_stp_with_imm_sp, w_stp_with_imm_sp): ExecutionUnit.STORE(),
+    AArch64ConditionalCompare: ExecutionUnit.I(),
 }
 
 # NOTE: Throughput as defined in https://dougallj.github.io/applecpu/firestorm.html
@@ -372,6 +374,7 @@ inverse_throughput = {
     (Ldr_X, x_ldr_stack_imm, ldr_sxtw_wform, ldr_const): 1,
     (Str_X, x_str_sp_imm): 1,
     (x_stp_with_imm_sp, w_stp_with_imm_sp): 1,
+    AArch64ConditionalCompare: 1,
 }
 
 
