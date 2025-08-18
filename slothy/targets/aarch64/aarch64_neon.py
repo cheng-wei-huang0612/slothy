@@ -3302,6 +3302,10 @@ class vdup(AArch64Instruction):
     inputs = ["Xa"]
     outputs = ["Vd"]
 
+class vdup_element(AArch64Instruction):
+    pattern = "dup <Vd>.<dt0>, <Va>.<dt1>[<index>]"
+    inputs = ["Va"]
+    outputs = ["Vd"]
 
 class Vmull(AArch64Instruction):
     pass
