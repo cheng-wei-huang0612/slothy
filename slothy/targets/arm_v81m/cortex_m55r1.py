@@ -260,14 +260,22 @@ def try_get_base_and_imm(inst):
     return base, imm
 
 
+# Cortex-M55 TRM 101051, "TCM interfaces", documents DTCM as four 32-bit
+# interfaces selected by address bits [3:2]: D0TCM, D1TCM, D2TCM, D3TCM. The
+# Cortex-M55 SWOG 102692, "Memory access instructions", uses the same bits to
+# define TCM bank conflicts for MVE memory accesses. This helper models that
+# documented DTCM bank selection.
 def m55_dtcm_bank(imm):
     return (imm >> 2) & 0x3
 
 
 def is_same_bank_scalar_store_load_hazard(inst_a, inst_b):
-    # Approximation for the Cortex-M55 DTCM store-load bank conflict observed in
-    # downstream N657x0 runs. This is separate from the SWOG timing-table values
-    # used for the latency and throughput entries below.
+    # Conservative scalar scheduling approximation. The TRM documents DTCM
+    # buffered writes and same-address read hazards, and the SWOG documents
+    # same-bank TCM conflicts for MVE memory accesses.
+    # We therefore avoid nearby scalar STR -> LDR pairs to the same DTCM bank.
+    # This same-bank scalar rule is a model heuristic, not a direct SWOG latency
+    # table entry.
     if not _is_same_base_scalar_str_ldr(inst_a, inst_b):
         return False
 
