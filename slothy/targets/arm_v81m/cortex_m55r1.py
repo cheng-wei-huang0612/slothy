@@ -302,6 +302,9 @@ def _add_st_ld_hazard(slothy):
         return
 
     def is_st_ld_pair(instA, instB):
+        # Scalar STR/LDR are physical memory accesses even when the base is
+        # sp/r13. st_ld_hazard_ignore_stack intentionally only suppresses
+        # virtual save/restore stack instructions identified by is_stack_*().
         if is_same_bank_scalar_store_load_hazard(instA, instB):
             return True
         if not instA.inst.is_vector_store() or not instB.inst.is_load():

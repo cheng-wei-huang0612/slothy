@@ -30,6 +30,7 @@ import slothy.targets.arm_v81m.arch_v81m as Arch_Armv81M
 import slothy.targets.arm_v81m.cortex_m55r1 as Target_CortexM55r1
 import slothy.targets.arm_v81m.cortex_m85r1 as Target_CortexM85r1
 from tests.naive.armv8m.test_instruction_model import run_instruction_model_tests
+from tests.naive.armv8m.test_memory_model import run_memory_model_tests
 
 
 class Instructions(OptimizationRunner):
@@ -153,6 +154,28 @@ class InstructionModelTest:
         run_instruction_model_tests()
 
 
+class MemoryModelTest:
+    name = "memory_model_m55"
+
+    def run(
+        self,
+        debug=False,
+        log_model=False,
+        log_model_dir="models",
+        dry_run=False,
+        silent=False,
+        timeout=0,
+        debug_logfile=None,
+        only_target=None,
+    ):
+        if only_target is not None and only_target != Target_CortexM55r1.__name__:
+            return
+
+        if not silent:
+            print(f"* Example: {self.name}...")
+        run_memory_model_tests()
+
+
 test_instances = [
     Instructions(),
     Instructions(target=Target_CortexM85r1),
@@ -165,4 +188,5 @@ test_instances = [
     HintTest(),
     TagTest(),
     InstructionModelTest(),
+    MemoryModelTest(),
 ]
