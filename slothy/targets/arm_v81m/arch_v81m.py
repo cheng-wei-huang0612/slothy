@@ -246,6 +246,7 @@ class Instruction:
         self.immediate = None
         self.datatype = None
         self.index = None
+        self.width = None
         self.flag = None
         self.barrel = None
 
@@ -646,12 +647,14 @@ class MVEInstruction(Instruction):
             "(((0[xb])?[0-9a-fA-F]+|/| |-|\\*|\\+|\\(|\\)|=|<<|>>)+)"
         )
         index_pattern = "[0-9]+"
+        width_pattern = r"(?:\.w|\.n|)"
         barrel_pattern = "(?:lsl|ror|lsr|asr)\\\\s*"
 
         src = replace_placeholders(src, "imm", imm_pattern, "imm")
         src = replace_placeholders(src, "dt", dt_pattern, "datatype")
         src = replace_placeholders(src, "fdt", fdt_pattern, "datatype")
         src = replace_placeholders(src, "index", index_pattern, "index")
+        src = replace_placeholders(src, "width", width_pattern, "width")
         src = replace_placeholders(src, "barrel", barrel_pattern, "barrel")
 
         src = r"\s*" + src + r"\s*(//.*)?\Z"
@@ -814,6 +817,7 @@ class MVEInstruction(Instruction):
             "imm", "immediate", lambda x: x.replace("#", "")
         )  # Strip '#'
         group_to_attribute("index", "index", int)
+        group_to_attribute("width", "width")
         group_to_attribute("barrel", "barrel")
 
         for s, ty in obj.pattern_inputs:
@@ -839,11 +843,9 @@ class MVEInstruction(Instruction):
         modifies_flags = getattr(c, "modifiesFlags", False)
         depends_on_flags = getattr(c, "dependsOnFlags", False)
         if isinstance(src, str):
-            if (
-                src.split(".")[0] != pattern.split(".")[0]
-                and src.split(" ")[0] != pattern.split(" ")[0]
-            ):
-                raise ParsingException("Mnemonic does not match")
+            # Leave checking the mnemonic to the generated parser. Apart from
+            # being redundant, a textual pre-check rejects patterns containing
+            # optional mnemonic suffixes such as <width>.
             res = MVEInstruction.get_parser(pattern)(src)
         else:
             assert isinstance(src, dict)
@@ -896,6 +898,7 @@ class MVEInstruction(Instruction):
         out = replace_pattern(out, "datatype", "dt", lambda x: x.upper())
         out = replace_pattern(out, "datatype", "fdt", lambda x: x.upper())
         out = replace_pattern(out, "index", "index", str)
+        out = replace_pattern(out, "width", "width", lambda x: x.lower())
         out = replace_pattern(out, "barrel", "barrel", lambda x: x.lower())
 
         out = out.replace("\\[", "[")
@@ -1040,13 +1043,13 @@ class orr_shifted(MVEInstruction):
 
 
 class eor(MVEInstruction):
-    pattern = "eor <Rd>, <Rn>, <Rm>"
+    pattern = "eor<width> <Rd>, <Rn>, <Rm>"
     inputs = ["Rn", "Rm"]
     outputs = ["Rd"]
 
 
 class eor_shifted(MVEInstruction):
-    pattern = "eor <Rd>, <Rn>, <Rm>, <barrel> <imm>"
+    pattern = "eor<width> <Rd>, <Rn>, <Rm>, <barrel> <imm>"
     inputs = ["Rn", "Rm"]
     outputs = ["Rd"]
 
@@ -1256,7 +1259,7 @@ class ldrd_with_post(MVEInstruction):
 
 
 class ldr(MVEInstruction):
-    pattern = "ldr <Rt>, [<Rn>, <imm>]"
+    pattern = "ldr<width> <Rt>, [<Rn>, <imm>]"
     inputs = ["Rn"]
     outputs = ["Rt"]
 
@@ -1347,7 +1350,7 @@ class strd_with_post(MVEInstruction):
 
 
 class str_reg(MVEInstruction):
-    pattern = "str <Rt>, [<Rn>, <imm>]"
+    pattern = "str<width> <Rt>, [<Rn>, <imm>]"
     inputs = ["Rn", "Rt"]
 
     @classmethod
