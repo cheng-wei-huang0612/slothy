@@ -156,6 +156,28 @@ def test_issue_419_reproducer_forms_parse():
     assert insts[3].args_out == ["flags"]
 
 
+def test_armv7m_width_suffix_and_expression_forms_parse():
+    source_lines = [
+        SourceLine("ldr.w r3, [r0, #8*4] // @slothy:reads=[r0Aba0]"),
+        SourceLine("str.w r1, [r0, #3*4] // @slothy:writes=[r0Abe0]"),
+        SourceLine("eor.w r3, r3, r5"),
+    ]
+    insts = [Arch.Instruction.parser(line)[0] for line in source_lines]
+
+    assert insts[0].width == ".w"
+    assert insts[0].immediate == "8*4"
+    assert insts[0].args_in == ["r0", "hint_r0Aba0"]
+    assert insts[1].width == ".w"
+    assert insts[1].immediate == "3*4"
+    assert insts[1].args_out == ["hint_r0Abe0"]
+    assert insts[2].width == ".w"
+    assert insts[2].args_in == ["r3", "r5"]
+    assert insts[2].args_out == ["r3"]
+    assert insts[0].write() == "ldr.w r3, [r0, #32]"
+    assert insts[1].write() == "str.w r1, [r0, #3*4]"
+    assert insts[2].write() == "eor.w r3, r3, r5"
+
+
 def run_instruction_model_tests():
     test_adjacent_vmov_pair_rewrites_first_only()
     test_vmov_pair_rewrites_across_intervening_unrelated_instruction()
@@ -164,6 +186,7 @@ def run_instruction_model_tests():
     test_cmp_outputs_flags()
     test_flags_can_be_declared_as_region_output()
     test_issue_419_reproducer_forms_parse()
+    test_armv7m_width_suffix_and_expression_forms_parse()
 
 
 if __name__ == "__main__":
